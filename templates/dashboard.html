@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+</head>
+<body>
+<h2>Patient Dashboard</h2>
+
+<a href="/add">Add Patient</a> |
+<a href="/logout">Logout</a>
+
+<br><br>
+
+<form method="GET">
+Search: <input name="search" value="{{ search }}">
+<button type="submit">Search</button>
+</form>
+
+<br>
+
+<table border="1">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Contact</th>
+<th>Diagnosis</th>
+<th>Prescription</th>
+<th>Follow-Up</th>
+<th>Date Added</th>
+<th>Delete</th>
+</tr>
+
+{% for patient in patients %}
+<tr>
+<td>{{ patient[0] }}</td>
+<td>{{ patient[1] }}</td>
+<td>{{ patient[2] }}</td>
+<td>{{ patient[3] }}</td>
+<td>{{ patient[4] }}</td>
+<td>{{ patient[5] }}</td>
+<td>{{ patient[6] }}</td>
+<td>{{ patient[7] }}</td>
+<td>{{ patient[8] }}</td>
+<td><a href="/delete/{{ patient[0] }}">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
